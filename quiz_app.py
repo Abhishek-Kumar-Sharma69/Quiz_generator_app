@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Set the API key
-api_key = os.getenv("GEMINI_API_KEY")
+api_key = os.getenv("GEMINI_API_KEY") | st.secrets["api"]["GEMINI_API_KEY"]
 genai.configure(api_key=api_key)
 
 def call_gemini_api(prompt, model="models/gemini-1.5-flash", max_tokens=150):
